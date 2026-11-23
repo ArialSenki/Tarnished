@@ -6,6 +6,12 @@ Same entries as the Nexus pages. Newest first.
 
 [Nexus page](https://www.nexusmods.com/eldenring/mods/11123)
 
+## Build 7
+
+- New INI option AllowUnknownGameVersion in [General], off by default (Nexus request). Set it to 1 and the mod keeps working after a game update it does not know yet. Every piece is still found by signature and checked; if a check fails, nothing changes.
+- Tested in game on Elden Ring 1.17.2.
+- No other changes: same options, defaults and install steps. Updating: replace the DLL; your INI can stay (add the new line under [General] if you want it).
+
 ## Build 6
 
 - Supports the Japanese Elden Ring 1.17.2 executable (eldenring.exe 2.7.2.1). Before this, Tarnished HUD logged "Unsupported executable version" on it and stayed off.
@@ -41,6 +47,12 @@ Same entries as the Nexus pages. Newest first.
 # Tarnished Vitals
 
 [Nexus page](https://www.nexusmods.com/eldenring/mods/11105)
+
+## Version 6
+
+- New INI option AllowUnknownGameVersion in [General], off by default (Nexus request). Set it to 1 and the mod keeps working after a game update it does not know yet. Every piece is still found by signature and checked; if a check fails, nothing changes.
+- Tested in game on Elden Ring 1.17.2.
+- No other changes: same options, defaults and install steps. Updating: replace the DLL; your INI can stay (add the new line under [General] if you want it).
 
 ## Version 5
 

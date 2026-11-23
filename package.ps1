@@ -1,4 +1,4 @@
-# Builds release\TarnishedHUD-build6.zip and release\TarnishedVitals-v5.zip
+# Builds release\TarnishedHUD-build7.zip and release\TarnishedVitals-v6.zip
 # (standard "/" paths, every entry verified against its source file).
 # Layout like NativeTweaks: README.txt at the root and DLLs\<dll> + <ini>; no menu
 # files (the bar layout is applied in memory by the DLL).
@@ -40,12 +40,12 @@ function New-ModZip([string]$zipName, [hashtable]$files) {
     "{0}: {1} files, {2} bytes, SHA256 {3}" -f $zipName, $files.Count, $item.Length, (Get-FileHash -LiteralPath $zipPath).Hash
 }
 
-New-ModZip 'TarnishedHUD-build6.zip' @{
+New-ModZip 'TarnishedHUD-build7.zip' @{
     'DLLs/TarnishedHUD.dll' = 'out\TarnishedHUD.dll'
     'DLLs/TarnishedHUD.ini' = 'assets\TarnishedHUD.ini'
     'README.txt' = 'assets\README-TarnishedHUD.txt'
 }
-New-ModZip 'TarnishedVitals-v5.zip' @{
+New-ModZip 'TarnishedVitals-v6.zip' @{
     'DLLs/TarnishedVitals.dll' = 'out\TarnishedVitals.dll'
     'DLLs/TarnishedVitals.ini' = 'assets\TarnishedVitals.ini'
     'README.txt' = 'assets\README-TarnishedVitals.txt'

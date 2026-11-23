@@ -1,4 +1,4 @@
-Tarnished Vitals - v5 - Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2 and 1.17.2 JP (PC)
+Tarnished Vitals - v6 - Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2 and 1.17.2 JP (PC)
 =====================================================================================
 
 Regeneration, maximum and infinite options for HP, FP and stamina, each with
@@ -59,6 +59,7 @@ Changing settings
   stay; at game start it leaves the mod off. See TarnishedVitals.log.
 
 Changes
+- v6: new INI option AllowUnknownGameVersion (General, off by default): 1 keeps the mod working on a game version it does not know yet, after a game update. Every piece is still found by signature and checked; if a check fails, nothing changes.
 - v5: supports the Japanese 1.17.2 executable (eldenring.exe 2.7.2.1).
   Before, the mod logged "Unsupported executable version" there and stayed
   off. Nothing else changed: same INI options, defaults and install steps.

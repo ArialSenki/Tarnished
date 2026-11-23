@@ -1,4 +1,4 @@
-Tarnished HUD - build 6 - Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2 and 1.17.2 JP (PC)
+Tarnished HUD - build 7 - Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2 and 1.17.2 JP (PC)
 =======================================================================================
 
 Lets you set the visual width of the HP, FP and stamina bars independently.
@@ -71,6 +71,7 @@ the layout alone and says so in the log.
 Calibrated at 2560x1440; other resolutions should work too.
 
 Changes
+- Build 7: new INI option AllowUnknownGameVersion (General, off by default): 1 keeps the mod working on a game version it does not know yet, after a game update. Every piece is still found by signature and checked; if a check fails, nothing changes.
 - Build 6: supports the Japanese 1.17.2 executable (eldenring.exe 2.7.2.1).
   Before, the mod logged "Unsupported executable version" there and stayed
   off. Nothing else changed: same INI options, defaults and install steps.

@@ -23,7 +23,7 @@
 #if defined(TV_HUD_ONLY)
 #define MOD_INI_NAME L"TarnishedHUD.ini"
 #define MOD_LOG_NAME L"TarnishedHUD.log"
-#define MOD_BANNER "Tarnished HUD build 6 (Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2, 1.17.2 JP). Live reload: NativeTweaks Save or INI re-read about once per second."
+#define MOD_BANNER "Tarnished HUD build 7 (Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2, 1.17.2 JP). Live reload: NativeTweaks Save or INI re-read about once per second."
 #else
 #define MOD_INI_NAME L"TarnishedVitals.ini"
 #define MOD_LOG_NAME L"TarnishedVitals.log"
@@ -211,6 +211,15 @@ static int check_version_of(const wchar_t *exe) {
             }
     }
     free(buffer);
+    if (!ok && GetPrivateProfileIntW(L"General",L"AllowUnknownGameVersion",0,ini_path)==1) {
+        /* Asked for on Nexus (wzysgdhr): keep working after a game update.
+           Nothing uses a fixed address: every piece is found by signature
+           and checked (Layout check), and a check that fails still changes
+           nothing. */
+        game_build_name="unknown version (AllowUnknownGameVersion=1)";
+        log_line("Unknown executable version: running anyway (General.AllowUnknownGameVersion=1). If the layout checks below fail, nothing changes.");
+        return 1;
+    }
     if (ok) log_line("Supported game: Elden Ring %s.",game_build_name);
     else log_line("Unsupported executable version. Supported: %s. Nothing changed.",
 #if defined(TV_HUD_ONLY)

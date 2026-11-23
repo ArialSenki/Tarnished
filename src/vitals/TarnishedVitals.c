@@ -16,7 +16,7 @@
 
 #define MOD_INI_NAME L"TarnishedVitals.ini"
 #define MOD_LOG_NAME L"TarnishedVitals.log"
-#define MOD_BANNER "Tarnished Vitals v5 (Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2, 1.17.2 JP). Live reload: NativeTweaks Save; Infinite changes need a restart."
+#define MOD_BANNER "Tarnished Vitals v6 (Elden Ring 1.17, 1.17.1, 1.17.1 JP, 1.17.2, 1.17.2 JP). Live reload: NativeTweaks Save; Infinite changes need a restart."
 
 /* Targets: eldenring.exe FileVersion 2.7.0.0 (1.17), 2.7.1.0 (1.17.1),
    2.7.1.1 (1.17.1, Japanese executable), 2.7.2.0 (1.17.2) and 2.7.2.1 (1.17.2,
@@ -300,6 +300,15 @@ static int check_version(void) {
             }
     }
     free(buffer);
+    if (!ok && GetPrivateProfileIntW(L"General",L"AllowUnknownGameVersion",0,ini_path)==1) {
+        /* Asked for on Nexus (wzysgdhr): keep working after a game update.
+           Nothing uses a fixed address: every piece is found by signature
+           and checked (Layout check), and a check that fails still changes
+           nothing. */
+        game_build_name="unknown version (AllowUnknownGameVersion=1)";
+        log_line("Unknown executable version: running anyway (General.AllowUnknownGameVersion=1). If the layout checks below fail, nothing changes.");
+        return 1;
+    }
     if (ok) log_line("Supported game: Elden Ring %s.",game_build_name);
     else log_line("Unsupported executable version. Supported: 2.7.0.0, 2.7.1.0, 2.7.1.1, 2.7.2.0, 2.7.2.1. Nothing changed.");
     return ok;
